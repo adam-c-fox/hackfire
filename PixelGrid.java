@@ -6,7 +6,7 @@ import java.io.File;
 import java.awt.Color;
 
 class PixelGrid {
-    int[][] pixels;
+    short[][] pixels;
     int w, h;
 
     public PixelGrid(String s, int w, int h) {
@@ -25,11 +25,13 @@ class PixelGrid {
           System.out.println("Error: "+e);
         }
 
-        this.pixels = new int[w][h];
+        this.pixels = new short[w][h];
 
         for( int i = 0; i < w; i++ ) {
              for( int j = 0; j < h; j++ ) {
-                 this.pixels[i][j] = img.getRGB( i, j );
+                 Color color = new Color(img.getRGB(i, j));
+                 if(color.getRed() != color.getBlue() || color.getRed() != color.getBlue()) System.out.println("Error");
+                 this.pixels[i][j] = (short)color.getRed();
              }
         }
     }
@@ -38,8 +40,7 @@ class PixelGrid {
         ForrestWorld f = new ForrestWorld(this.w, this.h);
         for( int i = 0; i < w; i++ ) {
              for( int j = 0; j < h; j++ ) {
-                 Color pixelColor = new Color(this.pixels[i][j]);
-                 if (pixelColor.equals(pixelColor.WHITE)) f.world[i][j].onFire = true;
+                 if (this.pixels[i][j] >= 200) f.world[i][j].onFire = true;
              }
         }
         return f;
