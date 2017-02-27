@@ -10,7 +10,6 @@ class Main {
         testWorld.testData();
 
         System.out.println(testWorld.world[3][4].getPressure());
-        ImageImport.getImage();
 
         PixelGrid p = new PixelGrid("fire.jpg", 2000, 2000);
         ForrestWorld f = p.toForrestWorld();
