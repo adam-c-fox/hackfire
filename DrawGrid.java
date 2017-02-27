@@ -1,10 +1,12 @@
 //import java.awt.Graphics;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+// import javax.swing.JFrame;
+// import javax.swing.JPanel;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Timer;
+import javax.swing.*;
 //import java.System.*;
 
 public class DrawGrid extends JPanel {
@@ -26,6 +28,23 @@ public class DrawGrid extends JPanel {
     f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     f.setVisible(true);
     f.setBackground(Color.BLACK);
+
+    button();
+  }
+
+  private void button() {
+    JButton startButton = new JButton("Run...");
+
+    startButton.addActionListener(new ActionListener(){
+      public void actionPerformed(ActionEvent e){
+        System.out.println("...to the hills");
+      }
+    });
+
+    JFrame sB = new JFrame();
+    sB.setSize(100,50);
+    sB.add(startButton);
+    sB.setVisible(true);
   }
 
   public void drawForest(ForestWorld f) {
@@ -64,8 +83,8 @@ public class DrawGrid extends JPanel {
 
    public void paint(Graphics g) {
 
-     for (int i=1; i<arraySizeX; i++){
-       for (int j=1; j<arraySizeY; j++){
+     for (int i=0; i<arraySizeX; i++){
+       for (int j=0; j<arraySizeY; j++){
          grid.add(new Rectangle(i*squareSize, j*squareSize, squareSize, squareSize));
        }
      }

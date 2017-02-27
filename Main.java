@@ -16,8 +16,12 @@ class Main {
         ForestWorld f = p.toForestWorld(80);
         f.world[0][0].onFire = true;
         //printInput(f,2000,2000);
-        DrawGrid g = new DrawGrid(200,200);
-        g.drawForest(f);
+
+        // DrawGrid g = new DrawGrid(200,200);
+        // g.drawForest(f);
+
+        DrawGrid g = new DrawGrid(100,100);
+        g.drawClick();
     }
 
     private static void printInput(ForestWorld f, int x, int y) {
