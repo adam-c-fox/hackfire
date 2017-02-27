@@ -1,3 +1,3 @@
 abstract class Visitor {
-    abstract void visit(ForrestWorld f);
+    abstract void visit(ForestWorld f);
 }

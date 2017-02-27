@@ -36,8 +36,8 @@ class PixelGrid {
         }
     }
 
-    public ForrestWorld toForrestWorld() {
-        ForrestWorld f = new ForrestWorld(this.w, this.h);
+    public ForestWorld toForestWorld() {
+        ForestWorld f = new ForestWorld(this.w, this.h);
         for( int i = 0; i < w; i++ ) {
              for( int j = 0; j < h; j++ ) {
                  if (this.pixels[i][j] >= 200) f.world[i][j].onFire = true;

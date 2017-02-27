@@ -1,8 +1,8 @@
-class ForrestWorld {
+class ForestWorld {
     Region[][] world;
     int sizeX, sizeY;
 
-    ForrestWorld(int worldX, int worldY){
+    ForestWorld(int worldX, int worldY){
       this.sizeX = worldX;
       this.sizeY = worldY;
 

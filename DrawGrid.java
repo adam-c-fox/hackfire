@@ -10,25 +10,42 @@ import java.util.ArrayList;
 public class DrawGrid extends JPanel {
   private static List<Shape> grid = new ArrayList<Shape>();
   private static List<Shape> fill = new ArrayList<Shape>();
-  int squareSize = 15;
-  int arraySize = 50;
-  int[][] rects = new int[arraySize][arraySize];
+  int squareSize = 5;
+  int arraySizeX = 50;
+  int arraySizeY = 50;
+  JFrame f;
 
-   public static void main(String[] a) {
-     new DrawGrid();
-   }
+  public DrawGrid(int x, int y) {
+    arraySizeX = x;
+    arraySizeY = y;
+    this.f = new JFrame();
 
-  public DrawGrid() {
-    JFrame f = new JFrame();
-    f.setSize(800, 800);
+
+    f.setSize(x*squareSize, y*squareSize);
     f.add(this);
     f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     f.setVisible(true);
-    //f.getContentPane().setBackground(Color.BLACK);
     f.setBackground(Color.BLACK);
+  }
 
+  public void drawForest(ForestWorld f) {
 
-    f.addMouseListener(new MouseAdapter() {
+    for(int i=0; i<f.sizeX; i++){
+      for(int j=0; j<f.sizeY; j++){
+        if(f.world[i][j].onFire == true){
+          Shape n = new Rectangle(i*squareSize, j*squareSize, squareSize, squareSize);
+          fill.add(n);
+        }
+      }
+    }
+
+    //DrawGrid g = new DrawGrid(f.sizeX, f.sizeY);
+
+  }
+
+  public void drawClick() {
+
+    this.f.addMouseListener(new MouseAdapter() {
       @Override
       public void mouseClicked(MouseEvent me) {
         for (Shape shape : grid) {
@@ -45,11 +62,10 @@ public class DrawGrid extends JPanel {
     });
   }
 
-
    public void paint(Graphics g) {
 
-     for (int i=1; i<arraySize; i++){
-       for (int j=1; j<arraySize; j++){
+     for (int i=1; i<arraySizeX; i++){
+       for (int j=1; j<arraySizeY; j++){
          grid.add(new Rectangle(i*squareSize, j*squareSize, squareSize, squareSize));
        }
      }
