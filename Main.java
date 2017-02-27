@@ -12,7 +12,7 @@ class Main {
 
         System.out.println(testWorld.world[3][4].getPressure());
 
-        PixelGrid p = new PixelGrid("fire.jpg", 2000, 2000);
+        PixelGrid p = new PixelGrid("small_fire.jpg", 200, 200);
         ForestWorld f = p.toForestWorld();
         f.world[0][0].onFire = true;
         // for(int i = 0; i<2000; i++) {
@@ -22,7 +22,7 @@ class Main {
         //     System.out.println();
         // }
 
-        DrawGrid g = new DrawGrid(2000,2000);
+        DrawGrid g = new DrawGrid(200,200);
         g.drawForest(f);
     }
 
