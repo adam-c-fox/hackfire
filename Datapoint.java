@@ -1,25 +1,24 @@
 class Datapoint {
-    private float pressure;
+    private double pressure;
     private WindVelocity windVelocity;
 
-    Datapoint(float pressure, float windVelocityX, float windVelocityY) {
+    Datapoint(double pressure, double windVelocityX, double windVelocityY) {
         this.pressure = pressure;
         this.windVelocity.x = windVelocityX;
         this.windVelocity.y = windVelocityY;
-
     }
 
-    public float getPressure() {
+    public double getPressure() {
         return this.pressure;
     }
-    public float setPressure(float pressureInput) {
+    public void setPressure(double pressureInput) {
         this.pressure = pressureInput;
     }
 
-    public float getWindVelocity() {
+    public WindVelocity getWindVelocity() {
         return this.windVelocity;
     }
-    public float setWindVelocity(float windVelocityX, float windVelocityY) {
-        this.windVelocity = new windVelocity(windVelocityX,windVelocityY);
+    public void setWindVelocity(double windVelocityX, double windVelocityY) {
+        this.windVelocity = new WindVelocity(windVelocityX,windVelocityY);
     }
 }
