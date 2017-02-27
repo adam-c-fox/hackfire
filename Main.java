@@ -15,15 +15,18 @@ class Main {
         PixelGrid p = new PixelGrid("small_fire.jpg", 200, 200);
         ForestWorld f = p.toForestWorld(80);
         f.world[0][0].onFire = true;
-        // for(int i = 0; i<2000; i++) {
-        //     for(int j = 0; j<2000; j++) {
-        //         System.out.print(toInt(f.world[i][j].onFire));
-        //     }
-        //     System.out.println();
-        // }
-
+        //printInput(f,2000,2000);
         DrawGrid g = new DrawGrid(200,200);
         g.drawForest(f);
+    }
+
+    private static void printInput(ForestWorld f, int x, int y) {
+         for(int i = 0; i<2000; i++) {
+             for(int j = 0; j<2000; j++) {
+                 System.out.print(toInt(f.world[i][j].onFire));
+             }
+             System.out.println();
+         }
     }
 
     private static int toInt(Boolean b) {
