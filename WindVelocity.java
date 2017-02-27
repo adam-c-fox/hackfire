@@ -6,4 +6,9 @@ class windVelocity {
         this.x = x;
         this.y = y;
     }
+
+    @Overide
+    public String toString() {
+    return ("(" + this.x + "," + this.y + ")");
+    }
 }
