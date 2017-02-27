@@ -3,9 +3,8 @@ class Datapoint {
     private WindVelocity windVelocity;
 
     Datapoint(double pressure, double windVelocityX, double windVelocityY) {
+        this.windVelocity = new WindVelocity(windVelocityX, windVelocityY);
         this.pressure = pressure;
-        this.windVelocity.x = windVelocityX;
-        this.windVelocity.y = windVelocityY;
     }
 
     public double getPressure() {
