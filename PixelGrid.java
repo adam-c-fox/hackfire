@@ -36,11 +36,11 @@ class PixelGrid {
         }
     }
 
-    public ForestWorld toForestWorld() {
+    public ForestWorld toForestWorld(int tollerance) {
         ForestWorld f = new ForestWorld(this.w, this.h);
         for( int i = 0; i < w; i++ ) {
              for( int j = 0; j < h; j++ ) {
-                 if (this.pixels[i][j] >= 80) f.world[i][j].onFire = true;
+                 if (this.pixels[i][j] >= tollerance) f.world[i][j].onFire = true;
              }
         }
         return f;
