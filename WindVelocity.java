@@ -1,8 +1,8 @@
-class windVelocity {
-    public float x;
-    public float y;
+class WindVelocity {
+    public double x;
+    public double y;
 
-    public windVelocity(float x, float y) {
+    public WindVelocity(double x, double y) {
         this.x = x;
         this.y = y;
     }
