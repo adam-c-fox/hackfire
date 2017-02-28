@@ -16,7 +16,7 @@ class Main {
         ForestWorld f = h.toForestWorld(80);
 
         BurnGrid b = new BurnGrid("small_burn.jpg", 200, 200);
-        b.toForestWorld(f,200);
+        b.toForestWorld(f,100);
         //printInput(f,2000,2000);
 
         DrawGrid g = new DrawGrid(200,200);

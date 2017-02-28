@@ -6,7 +6,7 @@ import java.io.File;
 import java.awt.Color;
 
 class BurnGrid {
-    short[][] pixels;
+    short[][] pixelsR, pixelsG, pixelsB;
     int w, h;
 
     public BurnGrid(String s, int w, int h) {
@@ -25,12 +25,16 @@ class BurnGrid {
           System.out.println("Error: "+e);
         }
 
-        this.pixels = new short[w][h];
+        this.pixelsR = new short[w][h];
+        this.pixelsG = new short[w][h];
+        this.pixelsB = new short[w][h];
 
         for( int i = 0; i < w; i++ ) {
              for( int j = 0; j < h; j++ ) {
                  Color color = new Color(img.getRGB(i, j));
-                     this.pixels[i][j] =  (short)(color.getRed() + color.getBlue() + color.getGreen());
+                     this.pixelsR[i][j] = (short)(color.getRed());
+                     this.pixelsG[i][j] = (short)(color.getGreen());
+                     this.pixelsB[i][j] = (short)(color.getBlue());
              }
         }
     }
@@ -38,7 +42,7 @@ class BurnGrid {
     public void toForestWorld(ForestWorld f, int tollerance) {
         for( int i = 0; i < w; i++ ) {
              for( int j = 0; j < h; j++ ) {
-                 if (this.pixels[i][j] <= tollerance) {
+                 if (this.pixelsR[i][j] <= tollerance && this.pixelsG[i][j] <= tollerance/2 && this.pixelsB[i][j] <= tollerance/2) {
                      f.world[i][j].charred = true;
                  }
              }

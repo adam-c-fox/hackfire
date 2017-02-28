@@ -12,7 +12,8 @@ import javax.swing.*;
 
 public class DrawGrid extends JPanel {
   private static List<Shape> grid = new ArrayList<Shape>();
-  private static List<Shape> fill = new ArrayList<Shape>();
+  private static List<Shape> fire = new ArrayList<Shape>();
+  private static List<Shape> charred = new ArrayList<Shape>();
   private ForestWorld fWorld;
   int squareSize = 5;
   int arraySizeX = 50;
@@ -74,7 +75,11 @@ public class DrawGrid extends JPanel {
       for(int j=0; j<f.sizeY; j++){
         if(fWorld.world[i][j].onFire == true){
           Shape n = new Rectangle(i*squareSize, j*squareSize, squareSize, squareSize);
-          fill.add(n);
+          fire.add(n);
+        }
+        if(fWorld.world[i][j].charred == true){
+          Shape n = new Rectangle(i*squareSize, j*squareSize, squareSize, squareSize);
+          charred.add(n);
         }
       }
     }
@@ -90,10 +95,10 @@ public class DrawGrid extends JPanel {
       public void mouseClicked(MouseEvent me) {
         for (Shape shape : grid) {
           if (shape.contains(me.getPoint())) {
-            if (fill.contains(shape)) {
-                fill.remove(shape);
+            if (fire.contains(shape)) {
+                fire.remove(shape);
             } else {
-                fill.add(shape);
+                fire.add(shape);
             }
           }
           repaint();
@@ -113,9 +118,15 @@ public class DrawGrid extends JPanel {
       //super.paintComponent(g);
       //^What does this even do????
       Graphics2D g2d = (Graphics2D) g;
+      Color brown = new Color( 88, 51, 51 );
+
       g2d.setColor(Color.WHITE);
-      for (Shape cell : fill) {
+      for (Shape cell : fire) {
           g2d.fill(cell);
+      }
+      g2d.setColor(brown);
+      for (Shape cell : charred) {
+        g2d.fill(cell);
       }
       // for (Shape cell : grid) {
       //     g2d.draw(cell);
