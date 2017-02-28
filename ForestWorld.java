@@ -28,6 +28,28 @@ class ForestWorld {
       }
     }
 
+    public double getPercentageCharred(){
+        int count = 0;
+        double total;
+        for(int i = 0; i<sizeX; i++){
+          for (int j = 0; j<sizeY; j++){
+            if (world[i][j].charred) count++;
+          }
+      }
+      return count/(sizeX*sizeY);
+    }
+
+    public double getPercentageFire(){
+        int count = 0;
+        double total;
+        for(int i = 0; i<sizeX; i++){
+          for (int j = 0; j<sizeY; j++){
+            if (world[i][j].onFire) count++;
+          }
+      }
+      return count/(sizeX*sizeY);
+    }
+
     public void accept(Visitor v) {
         v.visit(this);
     }
