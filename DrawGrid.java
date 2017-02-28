@@ -48,8 +48,10 @@ public class DrawGrid extends JPanel {
             if(fWorld == null){
               fWorld = new ForestWorld(arraySizeX,arraySizeY);
             }
-
+            Updater updater = new Updater();
+            updater.visit(fWorld);
             drawForest(fWorld);
+            System.out.println("Iterated!");
           }
         }, 1000, 1000);
       }
