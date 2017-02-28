@@ -25,7 +25,7 @@ class ForestWorld {
       for(int i = 0; i<sizeX; i++){
         for (int j = 0; j<sizeY; j++){
           world[i][j].onFire = false;
-          world[i][j].probabilityOfFire = 0.6;
+          world[i][j].probabilityOfFire = 0.1;
         }
       }
     }
