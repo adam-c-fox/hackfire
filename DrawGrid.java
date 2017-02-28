@@ -6,16 +6,19 @@ import java.awt.event.*;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Timer;
+import java.util.TimerTask;
 import javax.swing.*;
 //import java.System.*;
 
 public class DrawGrid extends JPanel {
   private static List<Shape> grid = new ArrayList<Shape>();
   private static List<Shape> fill = new ArrayList<Shape>();
+  private ForestWorld fWorld;
   int squareSize = 5;
   int arraySizeX = 50;
   int arraySizeY = 50;
   JFrame f;
+
 
   public DrawGrid(int x, int y) {
     arraySizeX = x;
@@ -38,8 +41,20 @@ public class DrawGrid extends JPanel {
     startButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         System.out.println("...to the hills");
+
+        timer.scheduleAtFixedRate(new TimerTask(){
+          @Override
+          public void run() {
+            if(this.fWorld == null){
+              this.fWorld = new ForestWorld(arraySizeX,arraySizeY);
+            }
+
+            drawForest(this.fWorld);
+          }
+        }, 1000, 1000);
       }
     });
+
 
     JFrame sB = new JFrame();
     sB.setSize(100,50);
@@ -48,10 +63,11 @@ public class DrawGrid extends JPanel {
   }
 
   public void drawForest(ForestWorld f) {
+    this.fWorld = f;
 
     for(int i=0; i<f.sizeX; i++){
       for(int j=0; j<f.sizeY; j++){
-        if(f.world[i][j].onFire == true){
+        if(fWorld.world[i][j].onFire == true){
           Shape n = new Rectangle(i*squareSize, j*squareSize, squareSize, squareSize);
           fill.add(n);
         }
