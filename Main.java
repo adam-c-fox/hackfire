@@ -12,15 +12,8 @@ class Main {
 
         System.out.println(testWorld.world[3][4].getPressure());
 
-        HeatGrid h = new HeatGrid("small_fire_2.jpg", 200, 200);
-        ForestWorld f = h.toForestWorld(80);
-
-        BurnGrid b = new BurnGrid("small_burn.jpg", 200, 200);
-        b.toForestWorld(f,150);
-        //printInput(f,2000,2000);
-
         DrawGrid g = new DrawGrid(200,200);
-        g.drawForest(f);
+        g.drawForest(null);
 
         // DrawGrid g = new DrawGrid(100,100);
         // g.drawClick();

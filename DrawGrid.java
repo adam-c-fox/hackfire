@@ -38,7 +38,9 @@ public class DrawGrid extends JPanel {
   }
 
   private void button() {
+    //f.setLayout(null);
     JButton startButton = new JButton("Run...");
+    // startButton.setBounds(1000,200,100,100);
 
     startButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
@@ -61,11 +63,51 @@ public class DrawGrid extends JPanel {
       }
     });
 
+    JFrame buttonFrame = new JFrame();
+    JButton clickButton = new JButton("Click map");
+    JButton loadButton = new JButton("Load demo");
+    JButton quitButton = new JButton("QUIT");
 
-    JFrame sB = new JFrame();
-    sB.setSize(100,50);
-    sB.add(startButton);
-    sB.setVisible(true);
+    clickButton.addActionListener(new ActionListener(){
+      public void actionPerformed(ActionEvent e){
+        drawClick();
+      }
+    });
+
+    loadButton.addActionListener(new ActionListener(){
+      public void actionPerformed(ActionEvent e){
+        HeatGrid h = new HeatGrid("small_fire_2.jpg", 200, 200);
+        ForestWorld f = h.toForestWorld(80);
+
+        BurnGrid b = new BurnGrid("small_burn.jpg", 200, 200);
+        b.toForestWorld(f,150);
+        //printInput(f,2000,2000);
+
+        DrawGrid g = new DrawGrid(200,200);
+        g.drawForest(f);
+      }
+    });
+
+    quitButton.addActionListener(new ActionListener(){
+      public void actionPerformed(ActionEvent e){
+        f.dispatchEvent(new WindowEvent(f, WindowEvent.WINDOW_CLOSING));
+      }
+    });
+
+    startButton.setBounds(0,0,150,80);
+    clickButton.setBounds(0,80,150,80);
+    loadButton.setBounds(0,160,150,80);
+    quitButton.setBounds(0,300,150,80);
+
+
+    buttonFrame.setLocation(arraySizeX*squareSize+70, 0);
+    buttonFrame.setSize(150,400);
+    buttonFrame.add(startButton);
+    buttonFrame.add(clickButton);
+    buttonFrame.add(loadButton);
+    buttonFrame.add(quitButton);
+    buttonFrame.setLayout(null);
+    buttonFrame.setVisible(true);
   }
 
   public void drawForest(ForestWorld f) {

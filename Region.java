@@ -1,11 +1,12 @@
 class Region {
-    Boolean onFire;
+    Boolean onFire, charred;
     Double probabilityOfFire;
-    Boolean charred;
+    int iterations;
 
     Region() {
       this.onFire = false;
       this.probabilityOfFire = 0.0;
       this.charred = false;
+      this.iterations = 0;
     }
 }
