@@ -33,7 +33,7 @@ public class DrawGrid extends JPanel {
     f.add(this);
     f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     f.setVisible(true);
-    f.setBackground(Color.BLACK);
+    f.setBackground(Color.GREEN);
 
     button();
   }
@@ -52,8 +52,8 @@ public class DrawGrid extends JPanel {
           @Override
           public void run() {
             //Updater updater = new Updater();
-            updt.visit(fWorld);
             probCalc.visit(fWorld);
+            updt.visit(fWorld);
             drawForest(fWorld);
             repaint();
             System.out.println("Iterated!");
@@ -177,7 +177,7 @@ public class DrawGrid extends JPanel {
       Graphics2D g2d = (Graphics2D) g;
       Color brown = new Color( 88, 51, 51 );
 
-      g2d.setColor(Color.WHITE);
+      g2d.setColor(Color.RED);
       for (Shape cell : fire) {
           g2d.fill(cell);
       }

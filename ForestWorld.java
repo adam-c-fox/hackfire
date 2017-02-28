@@ -17,8 +17,6 @@ class ForestWorld {
           //world[i][j].probabilityOfFire = givenprob[i][j];
         }
       }
-
-      testData();
     }
 
     public void testData() {
