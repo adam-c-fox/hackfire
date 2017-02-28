@@ -18,6 +18,7 @@ public class DrawGrid extends JPanel {
   int arraySizeX = 50;
   int arraySizeY = 50;
   JFrame f;
+  Updater updt = new Updater();
 
 
   public DrawGrid(int x, int y) {
@@ -41,6 +42,7 @@ public class DrawGrid extends JPanel {
     startButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         System.out.println("...to the hills");
+        
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask(){
           @Override
@@ -48,8 +50,8 @@ public class DrawGrid extends JPanel {
             if(fWorld == null){
               fWorld = new ForestWorld(arraySizeX,arraySizeY);
             }
-            Updater updater = new Updater();
-            updater.visit(fWorld);
+            //Updater updater = new Updater();
+            updt.visit(fWorld);
             drawForest(fWorld);
             System.out.println("Iterated!");
           }
