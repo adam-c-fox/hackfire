@@ -41,15 +41,15 @@ public class DrawGrid extends JPanel {
     startButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         System.out.println("...to the hills");
-
+        Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask(){
           @Override
           public void run() {
-            if(this.fWorld == null){
-              this.fWorld = new ForestWorld(arraySizeX,arraySizeY);
+            if(fWorld == null){
+              fWorld = new ForestWorld(arraySizeX,arraySizeY);
             }
 
-            drawForest(this.fWorld);
+            drawForest(fWorld);
           }
         }, 1000, 1000);
       }
