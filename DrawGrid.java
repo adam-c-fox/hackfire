@@ -114,9 +114,9 @@ public class DrawGrid extends JPanel {
       for (Shape cell : fill) {
           g2d.fill(cell);
       }
-      for (Shape cell : grid) {
-          g2d.draw(cell);
-      }
+      // for (Shape cell : grid) {
+      //     g2d.draw(cell);
+      // }
 
    }
 }
