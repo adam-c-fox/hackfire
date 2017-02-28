@@ -13,7 +13,6 @@ class ProbabilityCalculator extends Visitor {
                                                     f.world[i-1][j-1].probabilityOfFire +
                                                     f.world[i-1][j].probabilityOfFire;
 
-                System.out.println(n.world[i][j].probabilityOfFire);
                 n.world[i][j].probabilityOfFire = n.world[i][j].probabilityOfFire/3;
                 if(rand <= 5) n.world[i][j].probabilityOfFire -= 0.2;
 
