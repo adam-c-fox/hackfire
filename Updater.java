@@ -27,6 +27,15 @@ class Updater extends Visitor {
                     if (f.world[i-1][j].probabilityOfFire > 0.5 && f.world[i-1][j].charred == false){
                         n.world[i-1][j].onFire = true;
                     }
+
+
+
+                    if (f.world[i+1][j+1].probabilityOfFire > 0.5 && f.world[i+1][j+1].charred == false) {
+                        n.world[i+1][j+1].onFire = true;
+                    }
+                    if (f.world[i-1][j-1].probabilityOfFire > 0.5 && f.world[i-1][j-1].charred == false) {
+                        n.world[i-1][j-1].onFire = true;
+                    }
                 }
 
             }
