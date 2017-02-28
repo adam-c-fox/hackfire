@@ -122,9 +122,6 @@ public class DrawGrid extends JPanel {
         }
       }
     }
-
-    //DrawGrid g = new DrawGrid(f.sizeX, f.sizeY);
-
   }
 
   public void drawClick() {
