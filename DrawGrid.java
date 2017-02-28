@@ -50,9 +50,6 @@ public class DrawGrid extends JPanel {
         timer.scheduleAtFixedRate(new TimerTask(){
           @Override
           public void run() {
-            if(fWorld == null){
-              fWorld = new ForestWorld(arraySizeX,arraySizeY);
-            }
             //Updater updater = new Updater();
             updt.visit(fWorld);
             drawForest(fWorld);
@@ -135,8 +132,12 @@ public class DrawGrid extends JPanel {
     this.f.addMouseListener(new MouseAdapter() {
       @Override
       public void mouseClicked(MouseEvent me) {
+        if(fWorld == null){
+            fWorld = new ForestWorld(arraySizeX,arraySizeY);
+        }
         for (Shape shape : grid) {
           if (shape.contains(me.getPoint())) {
+              fWorld.world[me.getPoint().x/squareSize][me.getPoint().y/squareSize].onFire = true;
             if (fire.contains(shape)) {
                 fire.remove(shape);
             } else {
