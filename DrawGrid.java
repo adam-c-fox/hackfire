@@ -129,23 +129,38 @@ public class DrawGrid extends JPanel {
     this.f.addMouseListener(new MouseAdapter() {
       @Override
       public void mouseClicked(MouseEvent me) {
-        if(fWorld == null){
-            fWorld = new ForestWorld(arraySizeX,arraySizeY);
+
+        if(SwingUtilities.isLeftMouseButton(me)){
+          if(fWorld == null){
+              fWorld = new ForestWorld(arraySizeX,arraySizeY);
+          }
+          for (Shape shape : grid) {
+            if (shape.contains(me.getPoint())) {
+                fWorld.world[me.getPoint().x/squareSize][me.getPoint().y/squareSize].onFire = true;
+              if (fire.contains(shape)) {
+                  fire.remove(shape);
+              } else {
+                  fire.add(shape);
+              }
+            }
+            repaint();
+          }
         }
-        for (Shape shape : grid) {
-          if (shape.contains(me.getPoint())) {
-              fWorld.world[me.getPoint().x/squareSize][me.getPoint().y/squareSize].onFire = true;
-            if (fire.contains(shape)) {
-                fire.remove(shape);
-            } else {
-                fire.add(shape);
+
+        if(SwingUtilities.isRightMouseButton(me)){
+          for (Shape shape : grid) {
+            if (shape.contains(me.getPoint())) {
+                fWorld.world[me.getPoint().x/squareSize][me.getPoint().y/squareSize].charred = true;
+              if (charred.contains(shape)) {
+                  charred.remove(shape);
+              } else {
+                  charred.add(shape);
+              }
             }
           }
-          repaint();
-      }
-    }
-    });
-  }
+        }
+        repaint();
+      }});}
 
    public void paint(Graphics g) {
 
