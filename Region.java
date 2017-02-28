@@ -1,7 +1,7 @@
 class Region {
     Boolean onFire;
     Double probabilityOfFire;
-    public Color[] statecolor={Color.black,Color.white};
+    Color[] statecolor={Color.black,Color.white};
     
     Region(){
         if (onFire == true){
