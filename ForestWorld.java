@@ -17,13 +17,15 @@ class ForestWorld {
           //world[i][j].probabilityOfFire = givenprob[i][j];
         }
       }
+
+      testData();
     }
 
     public void testData() {
       for(int i = 0; i<sizeX; i++){
         for (int j = 0; j<sizeY; j++){
           world[i][j].onFire = false;
-          world[i][j].probabilityOfFire = 0.5;
+          world[i][j].probabilityOfFire = 0.6;
         }
       }
     }

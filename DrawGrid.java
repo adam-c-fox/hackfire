@@ -42,7 +42,7 @@ public class DrawGrid extends JPanel {
     startButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         System.out.println("...to the hills");
-        
+
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask(){
           @Override
@@ -53,6 +53,7 @@ public class DrawGrid extends JPanel {
             //Updater updater = new Updater();
             updt.visit(fWorld);
             drawForest(fWorld);
+            repaint();
             System.out.println("Iterated!");
           }
         }, 1000, 1000);
