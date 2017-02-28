@@ -1,7 +1,7 @@
 class Updater extends Visitor {
     public void visit(ForestWorld f) {
       ForestWorld n = new ForestWorld(f.sizeX, f.sizeY);
-      n.world = f.world;
+      //n.world = f.world;
 
         for(int i = 1; i < f.sizeX-1; i++) {
             for(int j = 1; j < f.sizeY-1; j++) {
@@ -20,6 +20,13 @@ class Updater extends Visitor {
                     }
                 }
 
+            }
+        }
+        for(int i = 1; i < f.sizeX-1; i++) {
+            for(int j = 1; j < f.sizeY-1; j++) {
+              if(f.world[i][j].charred == true){
+                n.world[i][j].charred = true;
+              }
             }
         }
 

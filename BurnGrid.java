@@ -42,7 +42,7 @@ class BurnGrid {
     public void toForestWorld(ForestWorld f, int tollerance) {
         for( int i = 0; i < w; i++ ) {
              for( int j = 0; j < h; j++ ) {
-                 if (this.pixelsR[i][j] <= tollerance && this.pixelsG[i][j] <= tollerance/2 && this.pixelsB[i][j] <= tollerance/2) {
+                 if (this.pixelsR[i][j] <= tollerance && this.pixelsG[i][j] <= tollerance/3 && this.pixelsB[i][j] <= tollerance/2) {
                      f.world[i][j].charred = true;
                  }
              }
