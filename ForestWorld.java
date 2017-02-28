@@ -2,7 +2,7 @@ class ForestWorld {
     Region[][] world;
     int sizeX, sizeY;
     //2D array which should store given probabilities...need a way to use .dat file to get 2D array 
-    public Probabilities[][] givenprob;
+    Probabilities[][] givenprob;
 
     ForestWorld(int worldX, int worldY){
       this.sizeX = worldX;
@@ -14,7 +14,7 @@ class ForestWorld {
         for (int j = 0; j<this.sizeY; j++){
           world[i][j] = new Region();       
           //input all given probablitites
-          world[i.probabilityOfFire][j.probabilityOfFire] = givenprob[i][j];
+          world[i][j].probabilityOfFire = givenprob[i][j];
         }
       }
     }
@@ -23,6 +23,7 @@ class ForestWorld {
       for(int i = 0; i<sizeX; i++){
         for (int j = 0; j<sizeY; j++){
           world[i][j].onFire = false;
+          world[i][j].probabilityOfFire = 0.5;
         }
       }
     }
