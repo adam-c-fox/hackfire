@@ -4,5 +4,6 @@ class Region {
 
     Region() {
       this.onFire = false;
+      this.probabilityOfFire = 0.0;
     }
 }
