@@ -20,6 +20,7 @@ public class DrawGrid extends JPanel {
   int arraySizeY = 50;
   JFrame f;
   Updater updt = new Updater();
+  ProbabilityCalculator probCalc = new ProbabilityCalculator();
 
 
   public DrawGrid(int x, int y) {
@@ -52,6 +53,7 @@ public class DrawGrid extends JPanel {
           public void run() {
             //Updater updater = new Updater();
             updt.visit(fWorld);
+            probCalc.visit(fWorld);
             drawForest(fWorld);
             repaint();
             System.out.println("Iterated!");
