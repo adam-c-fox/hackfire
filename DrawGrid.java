@@ -19,6 +19,10 @@ public class DrawGrid extends JPanel {
   int arraySizeX = 50;
   int arraySizeY = 50;
   JFrame f;
+  JFrame pcnt = new JFrame("Charred");
+  JFrame pcnt1 = new JFrame("Fire");
+  JLabel firePercent = new JLabel("Fire: 0%");
+  JLabel charredPercent = new JLabel("Charred: 0%");
   Updater updt = new Updater();
   ProbabilityCalculator probCalc = new ProbabilityCalculator();
 
@@ -33,7 +37,8 @@ public class DrawGrid extends JPanel {
     f.add(this);
     f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     f.setVisible(true);
-    f.setBackground(Color.GREEN);
+    Color grn = new Color(34,139,34);
+    f.setBackground(grn);
 
     button();
   }
@@ -55,6 +60,10 @@ public class DrawGrid extends JPanel {
             probCalc.visit(fWorld);
             updt.visit(fWorld);
             drawForest(fWorld);
+
+            firePercent.setText("Fire: " + fWorld.getPercentageFire() + "%");
+            charredPercent.setText("Charred: " + fWorld.getPercentageCharred() + "%");
+
             repaint();
             System.out.println("Iterated!");
           }
@@ -93,11 +102,23 @@ public class DrawGrid extends JPanel {
       }
     });
 
+    pcnt.add(charredPercent);
+    pcnt1.add(firePercent);
+
+    pcnt.setSize(150,50);
+    pcnt1.setSize(150,50);
+
+    pcnt.setLocation(arraySizeX*squareSize+70, 450);
+    pcnt1.setLocation(arraySizeX*squareSize+70, 550);
+
+    pcnt.setVisible(true);
+    pcnt1.setVisible(true);
+
+
     startButton.setBounds(0,0,150,80);
     clickButton.setBounds(0,80,150,80);
     loadButton.setBounds(0,160,150,80);
     quitButton.setBounds(0,300,150,80);
-
 
     buttonFrame.setLocation(arraySizeX*squareSize+70, 0);
     buttonFrame.setSize(150,400);

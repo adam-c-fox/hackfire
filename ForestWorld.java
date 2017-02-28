@@ -36,7 +36,7 @@ class ForestWorld {
             if (world[i][j].charred) count++;
           }
       }
-      return count/(sizeX*sizeY);
+      return (count*100)/(sizeX*sizeY);
     }
 
     public double getPercentageFire(){
@@ -47,7 +47,7 @@ class ForestWorld {
             if (world[i][j].onFire) count++;
           }
       }
-      return count/(sizeX*sizeY);
+      return (count*100)/(sizeX*sizeY);
     }
 
     public void accept(Visitor v) {
