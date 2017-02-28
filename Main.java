@@ -12,9 +12,11 @@ class Main {
 
         System.out.println(testWorld.world[3][4].getPressure());
 
-        PixelGrid p = new PixelGrid("small_fire.jpg", 200, 200);
-        ForestWorld f = p.toForestWorld(80);
-        f.world[0][0].onFire = true;
+        HeatGrid h = new HeatGrid("small_fire_2.jpg", 200, 200);
+        ForestWorld f = h.toForestWorld(80);
+
+        BurnGrid b = new BurnGrid("small_burn.jpg", 200, 200);
+        b.toForestWorld(f,200);
         //printInput(f,2000,2000);
 
         DrawGrid g = new DrawGrid(200,200);
