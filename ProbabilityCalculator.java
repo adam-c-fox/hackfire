@@ -14,7 +14,7 @@ class ProbabilityCalculator extends Visitor {
                                                     f.world[i-1][j].probabilityOfFire;
 
                 n.world[i][j].probabilityOfFire = n.world[i][j].probabilityOfFire/3;
-                if(rand <= 5) n.world[i][j].probabilityOfFire -= 0.2;
+                if(rand <= 5) n.world[i][j].probabilityOfFire -= 0.3;
 
                 if(n.world[i][j].probabilityOfFire > 1) n.world[i][j].probabilityOfFire = 1.0;
                 if(n.world[i][j].probabilityOfFire < 0) n.world[i][j].probabilityOfFire = 0.0;
